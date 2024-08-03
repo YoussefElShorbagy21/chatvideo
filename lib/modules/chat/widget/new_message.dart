@@ -4,8 +4,8 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 class NewMessage extends StatefulWidget {
-  const NewMessage({super.key});
-
+  const NewMessage({super.key, required this.receiverId});
+  final String receiverId  ;
   @override
   State<NewMessage> createState() => _NewMessageState();
 }
@@ -18,7 +18,22 @@ class _NewMessageState extends State<NewMessage> {
     FocusScope.of(context).unfocus();
     final user =  FirebaseAuth.instance.currentUser;
     final userData = await FirebaseFirestore.instance.collection('users').doc(user!.uid).get();
-    FirebaseFirestore.instance.collection('chat').add({
+
+    FirebaseFirestore.instance.collection('users').doc(user.uid).collection('chats')
+        .doc(widget.receiverId)
+        .collection('message')
+        .add({
+      'text': _enteredMessage,
+      'createdAt' : Timestamp.now(),
+      'username': userData['name'],
+      'userId': user.uid,
+      'userImage': userData['image']
+    });
+
+    FirebaseFirestore.instance.collection('users').doc(widget.receiverId).collection('chats')
+        .doc(user.uid)
+        .collection('message')
+        .add({
       'text': _enteredMessage,
       'createdAt' : Timestamp.now(),
       'username': userData['name'],

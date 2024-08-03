@@ -45,6 +45,9 @@ void navigateFish(BuildContext context, Widget widget) {
         (route) => false,
   );
 }
+String appID  = 'bf75131e8cf14da58660e61991cb9a47' ;
+String tempToken = '007eJxTYLANvlq695yyc7yAbHrc5qcftztFqXi9Dw3XynG3KM+YFanAkJRmbmpobJhqkZxmaJKSaGphZmaQamZoaWmYnGSZaGL+O3ldWkMgIwPHem0GRigE8xmSMxLz8lJzDBkYAD8KHtI=';
+String channelName = 'channel1';
 
 String? token = CacheHelper.getData(key: 'TokenId');
 

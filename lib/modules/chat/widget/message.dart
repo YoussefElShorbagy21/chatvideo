@@ -5,12 +5,14 @@ import 'package:flutter/material.dart';
 import 'message_bubble.dart';
 
 class Messages extends StatelessWidget {
-  const Messages({Key? key}) : super(key: key);
-
+  const Messages({Key? key, required this.receiverId}) : super(key: key);
+  final String receiverId ;
   @override
   Widget build(BuildContext context) {
     return StreamBuilder(
-        stream: FirebaseFirestore.instance.collection('chat').orderBy(
+        stream: FirebaseFirestore.instance.collection('users').doc(
+            FirebaseAuth.instance.currentUser!.uid
+        ).collection('chats').doc(receiverId).collection('message').orderBy(
             'createdAt', descending: true).snapshots(),
         builder: (context, snapshots) {
           if (snapshots.connectionState == ConnectionState.waiting) {

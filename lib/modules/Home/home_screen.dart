@@ -87,7 +87,9 @@ class HomeScreen extends StatelessWidget {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => const ChatScreen(),
+                        builder: (context) =>  ChatScreen(
+                          receiverId: users[index]['uid'],
+                        ),
                       ),
                     );
                   },
