@@ -14,7 +14,7 @@ class VideoCallScreen extends StatefulWidget {
 class _VideoCallScreenState extends State<VideoCallScreen> {
   late int _remoteUid = 0;
   RtcEngine engine =createAgoraRtcEngine();
-
+  bool _isMuted = false;
   @override
   void initState() {
     initAgora();
@@ -55,6 +55,21 @@ class _VideoCallScreenState extends State<VideoCallScreen> {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
+
+                  IconButton(
+                    onPressed: (){
+                      setState(() {
+                        _isMuted = !_isMuted;
+                        engine.muteLocalAudioStream(_isMuted);
+                        engine.muteAllRemoteAudioStreams(_isMuted);
+                      });
+                    },
+                    icon:  Icon(
+                      _isMuted ? Icons.volume_mute_outlined : Icons.volume_up_outlined,
+                      color: Colors.redAccent,
+                      size: 44,
+                    ),
+                  ),
                  IconButton(
                    onPressed: (){
                      setState(() {
