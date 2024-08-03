@@ -15,6 +15,7 @@ class _VideoCallScreenState extends State<VideoCallScreen> {
   late int _remoteUid = 0;
   RtcEngine engine =createAgoraRtcEngine();
   bool _isMuted = false;
+  bool _isVideo = false;
   @override
   void initState() {
     initAgora();
@@ -55,13 +56,24 @@ class _VideoCallScreenState extends State<VideoCallScreen> {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
-
+                  IconButton(
+                    onPressed: (){
+                      setState(() {
+                        _isVideo = !_isVideo;
+                        engine.muteLocalVideoStream(_isVideo);
+                      });
+                    },
+                    icon:  Icon(
+                      _isVideo ? Icons.visibility: Icons.disabled_visible,
+                      color: Colors.redAccent,
+                      size: 44,
+                    ),
+                  ),
                   IconButton(
                     onPressed: (){
                       setState(() {
                         _isMuted = !_isMuted;
                         engine.muteLocalAudioStream(_isMuted);
-                        // engine.muteAllRemoteAudioStreams(_isMuted);
                       });
                     },
                     icon:  Icon(
