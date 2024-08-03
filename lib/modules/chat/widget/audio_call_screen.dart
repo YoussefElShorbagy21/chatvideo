@@ -40,9 +40,9 @@ class _AudioCallScreenState extends State<AudioCallScreen> {
                   color: Colors.white,
                   fontSize: 20,
                 ),
-              ) : Text(
-                'Connected with ${_remoteUid.toString()}',
-                style: const TextStyle(
+              ) : const Text(
+                'Connected with remote user',
+                style: TextStyle(
                   color: Colors.white,
                   fontSize: 20,
                 ),

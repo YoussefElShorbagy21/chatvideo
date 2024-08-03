@@ -78,8 +78,11 @@ class _VideoCallScreenState extends State<VideoCallScreen> {
   Future<void> initAgora() async {
     await [Permission.camera, Permission.microphone].request();
     engine = createAgoraRtcEngine();
-    await engine.initialize( RtcEngineContext(appId: appID,));
+    await engine.initialize( RtcEngineContext(appId: appID,
+    channelProfile: ChannelProfileType.channelProfileLiveBroadcasting,
+    ));
     engine.enableVideo();
+    engine.setClientRole(role: ClientRoleType.clientRoleBroadcaster);
     engine.registerEventHandler(
       RtcEngineEventHandler(
         onJoinChannelSuccess: (RtcConnection connection, int elapsed) {

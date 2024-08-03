@@ -46,7 +46,7 @@ void navigateFish(BuildContext context, Widget widget) {
   );
 }
 String appID  = 'bf75131e8cf14da58660e61991cb9a47' ;
-String tempToken = '007eJxTYLANvlq695yyc7yAbHrc5qcftztFqXi9Dw3XynG3KM+YFanAkJRmbmpobJhqkZxmaJKSaGphZmaQamZoaWmYnGSZaGL+O3ldWkMgIwPHem0GRigE8xmSMxLz8lJzDBkYAD8KHtI=';
+String tempToken = '007eJxTYHC56Delu3z/AcXw0mdqN9cfeVKco7k34qn8lKNFp7mSJk1RYEhKMzc1NDZMtUhOMzRJSTS1MDMzSDUztLQ0TE6yTDQxf92xLq0hkJEhvU2biZEBAkF8DobkjMS8vNQcQwYGAEenIiE=';
 String channelName = 'channel1';
 
 String? token = CacheHelper.getData(key: 'TokenId');
