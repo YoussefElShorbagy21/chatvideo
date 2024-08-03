@@ -61,7 +61,7 @@ class _VideoCallScreenState extends State<VideoCallScreen> {
                       setState(() {
                         _isMuted = !_isMuted;
                         engine.muteLocalAudioStream(_isMuted);
-                        engine.muteAllRemoteAudioStreams(_isMuted);
+                        // engine.muteAllRemoteAudioStreams(_isMuted);
                       });
                     },
                     icon:  Icon(
