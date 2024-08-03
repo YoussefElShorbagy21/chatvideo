@@ -58,6 +58,7 @@ class _VideoCallScreenState extends State<VideoCallScreen> {
                 children: [
                  IconButton(
                    onPressed: (){
+                     engine.leaveChannel();
                      Navigator.pop(context);
                    },
                    icon: const Icon(
