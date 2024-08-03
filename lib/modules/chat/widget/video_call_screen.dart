@@ -21,11 +21,11 @@ class _VideoCallScreenState extends State<VideoCallScreen> {
     super.initState();
   }
 
-  @override
+/*  @override
   dispose() {
     engine.leaveChannel();
     super.dispose();
-  }
+  }*/
   @override
   Widget build(BuildContext context) {
     return Scaffold(
