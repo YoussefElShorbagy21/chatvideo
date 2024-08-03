@@ -16,6 +16,7 @@ class _VideoCallScreenState extends State<VideoCallScreen> {
   RtcEngine engine =createAgoraRtcEngine();
   bool _isMuted = false;
   bool _isVideo = false;
+
   @override
   void initState() {
     initAgora();
@@ -61,10 +62,11 @@ class _VideoCallScreenState extends State<VideoCallScreen> {
                       setState(() {
                         _isVideo = !_isVideo;
                         engine.muteLocalVideoStream(_isVideo);
+                        _isVideo == false ? engine.enableVideo() : engine.disableAudio();
                       });
                     },
                     icon:  Icon(
-                      _isVideo ? Icons.visibility: Icons.disabled_visible,
+                      _isVideo ?  Icons.disabled_visible : Icons.visibility,
                       color: Colors.redAccent,
                       size: 44,
                     ),
