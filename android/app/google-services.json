@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "932897975580",
+    "project_id": "chatvideo-f91a2",
+    "storage_bucket": "chatvideo-f91a2.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:932897975580:android:2bc7562ab240bc8a4b1ed9",
+        "android_client_info": {
+          "package_name": "com.chatvideo.chatvideo"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCTHAyXf8a3AFGA4RA-T5WsWOmiGzNM4kg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
