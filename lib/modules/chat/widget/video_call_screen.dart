@@ -21,11 +21,10 @@ class _VideoCallScreenState extends State<VideoCallScreen> {
     super.initState();
   }
 
-/*  @override
+  @override
   dispose() {
-    engine.leaveChannel();
     super.dispose();
-  }*/
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -58,8 +57,10 @@ class _VideoCallScreenState extends State<VideoCallScreen> {
                 children: [
                  IconButton(
                    onPressed: (){
-                     engine.leaveChannel();
-                     Navigator.pop(context);
+                     setState(() {
+                       engine.leaveChannel();
+                       Navigator.pop(context);
+                     });
                    },
                    icon: const Icon(
                       Icons.call_end,
